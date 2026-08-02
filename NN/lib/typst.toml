@@ -1,0 +1,5 @@
+[package]
+name = "personal_lib"
+version = "1.0.0"
+entrypoint = "personal_lib.typ"
+description = "My personal typst libraries"
