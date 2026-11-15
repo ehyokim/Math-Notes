@@ -1,7 +1,7 @@
 //imports
 #import "@preview/physica:0.9.7": *
-#import "@preview/equate:0.3.2": equate
-#import "ee546_lib.typ": *
+//#import "@preview/equate:0.3.2": equate  //disabled: conflicts with ctheorems, see note_template
+#import "prob_lib.typ": *
 #import "@preview/frame-it:1.2.0": *
 #import "@preview/ctheorems:2.0.0": *
 #import thm-themes.ams: *
@@ -15,11 +15,6 @@
 #let conjecture = conjecture.with(block-args: thm-shade)
 #let definition = definition.with(block-args: thm-shade + (stroke: 0.5pt + red))
 
-
-//theorem,examples frame settings.
-//#let theorem = frame("Theorem", gray)
-//#let definition = frame("Definition", teal)
-
 //heading spacing settings
 //set heading-space to false to use Typst's default spacing above headings
 #let heading-space = true
@@ -30,25 +25,25 @@
                    author: "Edward Kim",
                    doc,) = {
 
-    //math numbering custom rules.
-    //numbered by (section.eq_num)
+    //math numbering custom rules: numbered by (section.eq_num), only labelled equations.
+    //DISABLED: equate (0.3.2 and 0.3.3) loops forever ("maximum show rule depth exceeded")
+    //together with ctheorems' thm-rules on any display equation containing lr(...) or
+    //auto-sized brackets. Re-enable only after confirming the two packages work together.
     //show: equate.with(breakable: true, number-mode: "label")
     //show heading.where(level:1): it => {
     //  counter(math.equation).update(0)
     //  it
-   // }
- /*    set math.equation(numbering: it => {
-      // Get the current section number
-      let section_num = counter(heading.where(level: 1)).at(here()).first()
+    //}
+    //set math.equation(numbering: it => {
+    //  let section_num = counter(heading.where(level: 1)).at(here()).first()
+    //  if section_num > 0 {
+    //    numbering("(1.1)", section_num - 1, it)
+    //  } else {
+    //    numbering("(1.1)", section_num, it)
+    //  }
+    //})
+    show: thm-rules.with(qed-symbol: $square$)
 
-      // Check if section_num is valid and combine it with the equation number
-      // The `numbering()` function takes the format string, section number, and equation number
-      if section_num > 0 {
-        numbering("(1.1)", section_num - 1, it)
-      } else {
-        numbering("(1.1)", section_num, it)
-      }
-    }) */
     //document settings
     set document(title: note_title,
                  author: author)
@@ -86,7 +81,6 @@
     show heading: set block(above: heading-space-amount) if heading-space
 
     show: frame-style(styles.boxy)
-    show: thm-rules.with(qed-symbol: $square$)
 
     title()
     docu_info
@@ -97,5 +91,3 @@
 
     doc
 }
-
-

@@ -74,7 +74,7 @@ $
    bold(z)_i^(ell) = #mlp _theta ( sum_(j in cal(N)(i)) #mlp _phi (bold(h)_j^(\(ell\)) ))
 $
 
-This turns out to be a universal approximator of any permutation-invariant function that takes a set of embedding vectors and ouputs a single embedding vector.
+This turns out to be a universal approximator of any permutation-invariant function that takes a set of embedding vectors and outputs a single embedding vector.
 
 The output embedding vector $bold(h)_j^(\(ell + 1\)$ is defined as follows:
 

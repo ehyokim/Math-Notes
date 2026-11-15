@@ -1,7 +1,6 @@
 //imports
 #import "@preview/physica:0.9.7": *
-#import "prob_lib.typ": *
-#import "personal_lib.typ": *
+#import "@local/personal_lib:1.0.0": *
 
 #show: note_template.with(note_title: [Probability Notes])
 
@@ -18,13 +17,13 @@ A continuous probability distribution over a single random variable $X$ is defin
 
 The expected value and 2nd moments are defined as they are with discrete distributions:
 $ EE[X] = integral_(-infinity)^infinity x f(x) dd(x) \
-  EE[X^2] = integral_(-infinity)^infinity x^2 f(x) dd(x) #<secmoment> $
+  EE[X^2] = integral_(-infinity)^infinity x^2 f(x) dd(x) $
 
 
 = The Gaussian Distribution <gaussian>
 
 The density function for a one-dimensional Gaussian distribution $X$ is written as follow:
-$ f(x) = 1 / (sqrt(2 pi sigma^2)) dot e^(- 1/2 ((x- mu)/sigma)^2) #<gaussian_density> $
+$ f(x) = 1 / (sqrt(2 pi sigma^2)) dot e^(- 1/2 ((x- mu)/sigma)^2)  $
 
 where $mu$ is the mean and $sigma^2$ is the variance. By using the usual definitions of $EE[X]$ and $EE[X^2]$ (@continuous), it can be readily calculated that 
 $ EE[X] = mu \
